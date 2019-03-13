@@ -36,17 +36,18 @@ def getTopWords(frame):
         if key in stopwords:
             woerter[key]=0
 
-    sortedWordsPos = sorted(woerter.items(), key=lambda kv: kv[1], reverse=True) 
-    top5pos = sortedWordsPos[:50]
-    return top5pos
+    sortedWords = sorted(woerter.items(), key=lambda kv: kv[1], reverse=True) 
+        
+    return sortedWords
+    
+top5pos = getTopWords(posR)[:100]
+top5Neg = getTopWords(negR)[:100]
 
-top5pos = getTopWords(posR)
-top5Neg = getTopWords(negR)
 
-print("Top 50 words in positive reviews")
+print("Top 100 words in positive reviews")
 for la in top5pos:
     print(la)
 
-print("Top 50 words in negative reviews")
+print("Top 100 words in negative reviews")
 for bla in top5Neg:
     print(bla)
